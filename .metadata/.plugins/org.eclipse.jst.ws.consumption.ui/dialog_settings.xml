@@ -1,0 +1,8 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<section name="Workbench">
+	<list key="org.eclipse.jst.ws.client.type.java">
+		<item value="http://localhost:8080/OrderService/services/CourierServicePort?wsdl"/>
+		<item value="http://localhost:8080/OrderService/services/OrderServicePort?wsdl"/>
+		<item value="http://localhost:8080/TransportService/services/TransportServicePort?wsdl"/>
+	</list>
+</section>

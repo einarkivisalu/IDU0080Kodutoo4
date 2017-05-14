@@ -1,0 +1,51 @@
+<?xml version="1.0" encoding="utf-8"?><xs:schema xmlns:xs="http://www.w3.org/2001/XMLSchema" xmlns:tns="http://transport.idu0080.ttu/" targetNamespace="http://transport.idu0080.ttu/" version="1.0">
+<xs:element name="getCourierList" type="tns:getCourierList"/>
+<xs:element name="getCourierListResponse" type="tns:getCourierListResponse"/>
+<xs:element name="getCourierOffer" type="tns:getCourierOffer"/>
+<xs:element name="getCourierOfferResponse" type="tns:getCourierOfferResponse"/>
+<xs:element name="setOrderTransport" type="tns:setOrderTransport"/>
+<xs:element name="setOrderTransportResponse" type="tns:setOrderTransportResponse"/>
+
+<xs:complexType name="courierdata">
+    <xs:sequence>
+      <xs:element name="courier" type="xs:int"/>
+      <xs:element name="name" type="xs:string"/>
+    </xs:sequence>
+  </xs:complexType>
+<xs:complexType name="offerresponse">
+    <xs:sequence>
+      <xs:element name="offerid" type="xs:string"/>
+      <xs:element name="price" type="xs:float"/>
+      <xs:element name="days" type="xs:int"/>
+    </xs:sequence>
+  </xs:complexType>
+
+<xs:complexType name="getCourierList">
+    <xs:sequence/>
+  </xs:complexType>
+<xs:complexType name="getCourierListResponse">
+    <xs:sequence>
+      <xs:element maxOccurs="unbounded" minOccurs="0" name="couriers" type="tns:courierdata"/>
+    </xs:sequence>
+  </xs:complexType>
+<xs:complexType name="getCourierOffer">
+    <xs:sequence>
+      <xs:element name="orderid" type="xs:int"/>
+    </xs:sequence>
+  </xs:complexType>
+<xs:complexType name="getCourierOfferResponse">
+    <xs:sequence>
+      <xs:element name="offer" type="tns:offerresponse"/>
+    </xs:sequence>
+  </xs:complexType>
+<xs:complexType name="setOrderTransport">
+    <xs:sequence>
+      <xs:element name="offerid" type="xs:string"/>
+    </xs:sequence>
+  </xs:complexType>
+<xs:complexType name="setOrderTransportResponse">
+    <xs:sequence>
+      <xs:element name="transportid" type="xs:string"/>
+    </xs:sequence>
+  </xs:complexType>
+</xs:schema>

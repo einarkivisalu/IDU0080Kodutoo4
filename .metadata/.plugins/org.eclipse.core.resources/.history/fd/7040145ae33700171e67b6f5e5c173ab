@@ -1,0 +1,149 @@
+
+/**
+ * Please modify this class to meet your needs
+ * This class is not complete
+ */
+
+package ttu.idu0080.orderservice.couriers;
+
+import java.util.logging.Logger;
+import javax.jws.WebMethod;
+import javax.jws.WebParam;
+import javax.jws.WebResult;
+import javax.jws.WebService;
+import javax.xml.bind.annotation.XmlSeeAlso;
+import javax.xml.ws.Action;
+import javax.xml.ws.RequestWrapper;
+import javax.xml.ws.ResponseWrapper;
+
+import java.sql.DriverManager;
+import java.sql.Connection;
+import java.sql.Statement;
+import java.sql.ResultSet;
+
+@javax.jws.WebService(
+                      serviceName = "CourierServiceService",
+                      portName = "CourierServicePort",
+                      targetNamespace = "http://server.order.idu0080.ttu/",
+                      wsdlLocation = "file:/C:/Users/Random/workspace4test2/OrderService/src/couriers.wsdl",
+                      endpointInterface = "ttu.idu0080.orderservice.couriers.CourierService")
+                      
+public class CourierServiceImpl implements CourierService {
+
+	private static final String DB_DRIVER = "org.postgresql.Driver";
+    private static final String DB_CONNECTION = "jdbc:postgresql://localhost:5432/orders"; 
+    private static final String DB_USER = "IDU0080";
+	private static final String DB_PASSWORD = "IDU0080";
+	
+    private static final Logger LOG = Logger.getLogger(CourierServiceImpl.class.getName());
+
+    /* (non-Javadoc)
+     * @see ttu.idu0080.orderservice.couriers.CourierService#getCouriersByAddress(java.lang.String  country ,)java.lang.String  county )*
+     */
+    public java.util.List<ttu.idu0080.orderservice.couriers.Courier> getCouriersByAddress(java.lang.String country,java.lang.String county) { 
+        LOG.info("Executing operation getCouriersByAddress");
+        System.out.println(country);
+        System.out.println(county);
+        try {
+            java.util.List<ttu.idu0080.orderservice.couriers.Courier> _return = new java.util.ArrayList<ttu.idu0080.orderservice.couriers.Courier>();
+            ttu.idu0080.orderservice.couriers.Courier _returnVal1 = new ttu.idu0080.orderservice.couriers.Courier();
+            java.util.List<ttu.idu0080.orderservice.couriers.EntAddress> _returnVal1Addresses = new java.util.ArrayList<ttu.idu0080.orderservice.couriers.EntAddress>();
+            ttu.idu0080.orderservice.couriers.EntAddress _returnVal1AddressesVal1 = new ttu.idu0080.orderservice.couriers.EntAddress();
+            _returnVal1AddressesVal1.setAddress(-1848755692);
+            _returnVal1AddressesVal1.setCountry("Country297191693");
+            _returnVal1AddressesVal1.setCounty("County-1533608428");
+            _returnVal1AddressesVal1.setStreetAddress("StreetAddress922916601");
+            _returnVal1AddressesVal1.setTownVillage("TownVillage-1991861847");
+            _returnVal1AddressesVal1.setZipcode("Zipcode760654881");
+            _returnVal1Addresses.add(_returnVal1AddressesVal1);
+            _returnVal1.getAddresses().addAll(_returnVal1Addresses);
+            _returnVal1.setEnterprise(832611148);
+            _returnVal1.setName("Name2089800830");
+            _returnVal1.setPercentFromOrder(1595753046);
+            _return.add(_returnVal1);
+            return _return;
+        } catch (java.lang.Exception ex) {
+            ex.printStackTrace();
+            throw new RuntimeException(ex);
+        }
+    }
+
+    /* (non-Javadoc)
+     * @see ttu.idu0080.orderservice.couriers.CourierService#getCourierById(int  courierId )*
+     */
+    public ttu.idu0080.orderservice.couriers.Courier getCourierById(int courierId) { 
+        LOG.info("Executing operation getCourierById");
+        System.out.println(courierId);
+        try {
+            ttu.idu0080.orderservice.couriers.Courier _return = new ttu.idu0080.orderservice.couriers.Courier();
+            java.util.List<ttu.idu0080.orderservice.couriers.EntAddress> _returnAddresses = new java.util.ArrayList<ttu.idu0080.orderservice.couriers.EntAddress>();
+            ttu.idu0080.orderservice.couriers.EntAddress _returnAddressesVal1 = new ttu.idu0080.orderservice.couriers.EntAddress();
+            _returnAddressesVal1.setAddress(-593067885);
+            _returnAddressesVal1.setCountry("Country189019644");
+            _returnAddressesVal1.setCounty("County-1667736264");
+            _returnAddressesVal1.setStreetAddress("StreetAddress2043983263");
+            _returnAddressesVal1.setTownVillage("TownVillage2042732333");
+            _returnAddressesVal1.setZipcode("Zipcode-1857064017");
+            _returnAddresses.add(_returnAddressesVal1);
+            _return.getAddresses().addAll(_returnAddresses);
+            _return.setEnterprise(-1318263259);
+            _return.setName("Name-1560632923");
+            _return.setPercentFromOrder(1393665832);
+            return _return;
+        } catch (java.lang.Exception ex) {
+            ex.printStackTrace();
+            throw new RuntimeException(ex);
+        }
+    }
+
+    /* (non-Javadoc)
+     * @see ttu.idu0080.orderservice.couriers.CourierService#getAllCouriers(*
+     */
+    public java.util.List<ttu.idu0080.orderservice.couriers.Courier> getAllCouriers() { 
+        LOG.info("Executing operation getAllCouriers");
+        try {
+            java.util.List<ttu.idu0080.orderservice.couriers.Courier> _return = new java.util.ArrayList<ttu.idu0080.orderservice.couriers.Courier>();
+        	Class.forName(DB_DRIVER);
+        	Connection connection = DriverManager.getConnection(DB_CONNECTION, DB_USER, DB_PASSWORD);
+            Statement stmt = null;
+            stmt = connection.createStatement();
+            String sql = "SELECT enterprise, name, percent_from_order FROM enterprise WHERE is_courier='Y'";
+            ResultSet rs = stmt.executeQuery(sql);
+            while (rs.next()) {
+                ttu.idu0080.orderservice.couriers.Courier _returnVal1 = new ttu.idu0080.orderservice.couriers.Courier();
+                java.util.List<ttu.idu0080.orderservice.couriers.EntAddress> _returnVal1Addresses = new java.util.ArrayList<ttu.idu0080.orderservice.couriers.EntAddress>();
+                ttu.idu0080.orderservice.couriers.EntAddress _returnVal1AddressesVal1 = new ttu.idu0080.orderservice.couriers.EntAddress();
+                
+            	int id = rs.getInt("enterprise");
+            	_returnVal1.setEnterprise(id);
+            	String name = rs.getString("name");
+            	int perc = rs.getInt("percent_from_order ");
+            	
+            }
+            stmt.close();
+            connection.close();        	
+/*            
+            ttu.idu0080.orderservice.couriers.Courier _returnVal1 = new ttu.idu0080.orderservice.couriers.Courier();
+            java.util.List<ttu.idu0080.orderservice.couriers.EntAddress> _returnVal1Addresses = new java.util.ArrayList<ttu.idu0080.orderservice.couriers.EntAddress>();
+            ttu.idu0080.orderservice.couriers.EntAddress _returnVal1AddressesVal1 = new ttu.idu0080.orderservice.couriers.EntAddress();
+            _returnVal1AddressesVal1.setAddress(2128317166);
+            _returnVal1AddressesVal1.setCountry("Country1087476848");
+            _returnVal1AddressesVal1.setCounty("County-516946503");
+            _returnVal1AddressesVal1.setStreetAddress("StreetAddress-502068935");
+            _returnVal1AddressesVal1.setTownVillage("TownVillage1888609273");
+            _returnVal1AddressesVal1.setZipcode("Zipcode1367943703");
+            _returnVal1Addresses.add(_returnVal1AddressesVal1);
+            _returnVal1.getAddresses().addAll(_returnVal1Addresses);
+            _returnVal1.setEnterprise(230067249);
+            _returnVal1.setName("Name514375376");
+            _returnVal1.setPercentFromOrder(-2136457036);
+            _return.add(_returnVal1);
+*/
+            return _return;
+        } catch (java.lang.Exception ex) {
+            ex.printStackTrace();
+            throw new RuntimeException(ex);
+        }
+    }
+
+}

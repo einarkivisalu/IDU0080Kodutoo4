@@ -1,0 +1,20 @@
+<?xml version="1.0" encoding="UTF-8" standalone="no"?>
+<qualifiedTypeNameHistroy>
+<fullyQualifiedTypeName name="java.sql.ResultSet"/>
+<fullyQualifiedTypeName name="org.postgresql.Driver"/>
+<fullyQualifiedTypeName name="ttu.idu0080.transport.courierclient.CourierService_CourierServicePort_Client"/>
+<fullyQualifiedTypeName name="java.util.concurrent.ThreadLocalRandom"/>
+<fullyQualifiedTypeName name="java.util.Random"/>
+<fullyQualifiedTypeName name="ttu.idu0080.transport.orderclient.OrderService_OrderServicePort_Client"/>
+<fullyQualifiedTypeName name="ttu.idu0080.transport.orderclient.OrderProduct"/>
+<fullyQualifiedTypeName name="ttu.idu0080.transport.orderclient.Order"/>
+<fullyQualifiedTypeName name="ttu.idu0080.transport.Courierdata"/>
+<fullyQualifiedTypeName name="ttu.idu0080.transport.courierclient.Courier"/>
+<fullyQualifiedTypeName name="ttu.idu0080.transport.courierclient.EntAddress"/>
+<fullyQualifiedTypeName name="java.util.List"/>
+<fullyQualifiedTypeName name="java.util.Date"/>
+<fullyQualifiedTypeName name="java.util.Calendar"/>
+<fullyQualifiedTypeName name="org.apache.commons.lang.time.DateUtils"/>
+<fullyQualifiedTypeName name="java.text.SimpleDateFormat"/>
+<fullyQualifiedTypeName name="java.text.DateFormat"/>
+</qualifiedTypeNameHistroy>

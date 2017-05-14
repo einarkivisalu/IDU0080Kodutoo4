@@ -1,0 +1,22 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!--Published by JAX-WS RI at http://jax-ws.dev.java.net. RI's version is Metro/2.2.1-1 (tags/2.2.1-1-7267; 2012-08-30T14:04:51+0000) JAXWS-RI/2.2.7 JAXWS/2.2 svn-revision#unknown.--><xs:schema version="1.0" targetNamespace="http://server.order.idu0080.ttu/" xmlns:tns="http://server.order.idu0080.ttu/" xmlns:xs="http://www.w3.org/2001/XMLSchema">
+  <xs:element name="getAllProducts" type="tns:getAllProducts"/>
+  <xs:element name="getAllProductsResponse" type="tns:getAllProductsResponse"/>
+  <xs:complexType name="getAllProducts">
+    <xs:sequence/>
+  </xs:complexType>
+  <xs:complexType name="getAllProductsResponse">
+    <xs:sequence>
+      <xs:element name="return" type="tns:product" minOccurs="0" maxOccurs="unbounded"/>
+    </xs:sequence>
+  </xs:complexType>
+  <xs:complexType name="product">
+    <xs:sequence>
+      <xs:element name="description" type="xs:string" minOccurs="0"/>
+      <xs:element name="eshop_price" type="xs:float"/>
+      <xs:element name="name" type="xs:string" minOccurs="0"/>
+      <xs:element name="product" type="xs:int"/>
+      <xs:element name="product_code" type="xs:string" minOccurs="0"/>
+    </xs:sequence>
+  </xs:complexType>
+</xs:schema>

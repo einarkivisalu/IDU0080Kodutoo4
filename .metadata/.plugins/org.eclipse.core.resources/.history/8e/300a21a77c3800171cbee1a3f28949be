@@ -1,0 +1,23 @@
+package ttu.idu0080.myclient;
+
+public class Tester {
+
+	public static void main(String[] args) {
+		// TODO Auto-generated method stub
+		OrderService_OrderServicePort_Client Client = new OrderService_OrderServicePort_Client();
+			try {
+			printProducts(Client.getProductsFromMyService());
+			} catch (Exception e) {
+			// TODO Auto-generated catch block
+			e.printStackTrace();
+			}
+			}
+			public static void printProducts(List<ttu.idu0080.order.server.Product> products)
+			{
+			if (products != null)
+			{
+			for (ttu.idu0080.order.server.Product p: products) {
+			System.out.println("product id:" + p.getProduct() + " name:" + p.getName() );
+	}
+
+}

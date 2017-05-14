@@ -1,0 +1,10 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<section name="Workbench">
+	<list key="1/org.eclipse.jst.ws.wsImpl.java">
+		<item value="/TransportService/src/transport.wsdl"/>
+		<item value="/OrderService/src/order_shipments.wsdl"/>
+		<item value="/OrderService/src/couriers.wsdl"/>
+		<item value="/OrderService/src/orders.wsdl"/>
+		<item value="/OrderService/src/products.wsdl"/>
+	</list>
+</section>

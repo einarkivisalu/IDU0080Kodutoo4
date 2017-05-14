@@ -1,0 +1,87 @@
+<?xml version="1.0" encoding="UTF-8" standalone="no"?>
+<wsdl:definitions xmlns:soap="http://schemas.xmlsoap.org/wsdl/soap/" xmlns:tns="http://transport.idu0080.ttu/" xmlns:wsdl="http://schemas.xmlsoap.org/wsdl/" xmlns:xsd="http://www.w3.org/2001/XMLSchema" name="TransportImplService" targetNamespace="http://transport.idu0080.ttu/">
+  <wsdl:types>
+<schema xmlns="http://www.w3.org/2001/XMLSchema">
+<import namespace="http://transport.idu0080.ttu/" schemaLocation="transport.xsd"/>
+</schema>
+  </wsdl:types>
+  <wsdl:message name="getCourierList">
+    <wsdl:part element="tns:getCourierList" name="parameters">
+    </wsdl:part>
+  </wsdl:message>
+  <wsdl:message name="getCourierListResponse">
+    <wsdl:part element="tns:getCourierListResponse" name="parameters">
+    </wsdl:part>
+  </wsdl:message>
+  <wsdl:message name="getCourierOffer">
+    <wsdl:part element="tns:getCourierOffer" name="parameters">
+    </wsdl:part>
+  </wsdl:message>
+  <wsdl:message name="getCourierOfferResponse">
+    <wsdl:part element="tns:getCourierOfferResponse" name="parameters">
+    </wsdl:part>
+  </wsdl:message>
+  <wsdl:message name="setOrderTransport">
+    <wsdl:part element="tns:setOrderTransport" name="parameters">
+    </wsdl:part>
+  </wsdl:message>
+  <wsdl:message name="setOrderTransportResponse">
+    <wsdl:part element="tns:setOrderTransportResponse" name="parameters">
+    </wsdl:part>
+  </wsdl:message>
+  <wsdl:portType name="TransportService">
+    <wsdl:operation name="getCourierList">
+      <wsdl:input message="tns:getCourierList" name="getCourierList">
+    </wsdl:input>
+      <wsdl:output message="tns:getCourierListResponse" name="getCourierListResponse">
+    </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="getCourierOffer">
+      <wsdl:input message="tns:getCourierOffer" name="getCourierOffer">
+    </wsdl:input>
+      <wsdl:output message="tns:getCourierOfferResponse" name="getCourierOfferResponse">
+    </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="setOrderTransport">
+      <wsdl:input message="tns:setOrderTransport" name="setOrderTransport">
+    </wsdl:input>
+      <wsdl:output message="tns:setOrderTransportResponse" name="setOrderTransportResponse">
+    </wsdl:output>
+    </wsdl:operation>
+  </wsdl:portType>
+  <wsdl:binding name="TransportServiceSoapBinding" type="tns:TransportService">
+    <soap:binding style="document" transport="http://schemas.xmlsoap.org/soap/http"/>
+    <wsdl:operation name="getCourierList">
+      <soap:operation soapAction="" style="document"/>
+      <wsdl:input name="getCourierList">
+        <soap:body use="literal"/>
+      </wsdl:input>
+      <wsdl:output name="getCourierListResponse">
+        <soap:body use="literal"/>
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="getCourierOffer">
+      <soap:operation soapAction="" style="document"/>
+      <wsdl:input name="getCourierOffer">
+        <soap:body use="literal"/>
+      </wsdl:input>
+      <wsdl:output name="getCourierOfferResponse">
+        <soap:body use="literal"/>
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="setOrderTransport">
+      <soap:operation soapAction="" style="document"/>
+      <wsdl:input name="setOrderTransport">
+        <soap:body use="literal"/>
+      </wsdl:input>
+      <wsdl:output name="setOrderTransportResponse">
+        <soap:body use="literal"/>
+      </wsdl:output>
+    </wsdl:operation>
+  </wsdl:binding>
+  <wsdl:service name="TransportServiceService">
+    <wsdl:port binding="tns:TransportServiceSoapBinding" name="TransportServicePort">
+      <soap:address location="http://localhost:8080/TransportServicePort"/>
+    </wsdl:port>
+  </wsdl:service>
+</wsdl:definitions>

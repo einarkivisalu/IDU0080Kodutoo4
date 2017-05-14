@@ -1,0 +1,33 @@
+package ttu.idu0080.myclient;
+
+import java.util.List;
+
+public class Tester {
+
+	public static void main(String[] args) {
+		OrderService_OrderServicePort_Client Client = new OrderService_OrderServicePort_Client();
+		try {
+			printOrders(Client._getOrderById(5)());
+		} catch (Exception e) {
+			// TODO Auto-generated catch block
+			e.printStackTrace();
+		}
+	}
+
+	public static void printOrders(ttu.idu0080.myclient.Order order)	{
+		if (order != null)
+		{
+			System.out.println("order id:" + order.getOrderId() + " price:" + order.getPriceTotal() );
+		}
+	}
+
+	public static void printOrders(List<ttu.idu0080.myclient.Order> orders)	{
+		if (orders != null)
+		{
+			for (ttu.idu0080.myclient.Order p: orders) {
+				System.out.println("order id:" + p.getOrderId() + " price:" + p.getPriceTotal() );
+			}
+		}
+	}
+
+}
