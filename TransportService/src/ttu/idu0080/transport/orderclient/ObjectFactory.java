@@ -10,7 +10,7 @@ import javax.xml.namespace.QName;
 /**
  * This object contains factory methods for each 
  * Java content interface and Java element interface 
- * generated in the ttu.idu0080.transport.orderservice package. 
+ * generated in the ttu.idu0080.transport.orderclient package. 
  * <p>An ObjectFactory allows you to programatically 
  * construct new instances of the Java representation 
  * for XML content. The Java representation of XML 
@@ -26,28 +26,46 @@ public class ObjectFactory {
 
     private final static QName _GetOrdersByCustomerId_QNAME = new QName("http://server.order.idu0080.ttu/", "getOrdersByCustomerId");
     private final static QName _GetAllOrders_QNAME = new QName("http://server.order.idu0080.ttu/", "getAllOrders");
+    private final static QName _GetAllProductsResponse_QNAME = new QName("http://server.order.idu0080.ttu/", "getAllProductsResponse");
     private final static QName _GetOrdersByOrderId_QNAME = new QName("http://server.order.idu0080.ttu/", "getOrdersByOrderId");
     private final static QName _GetOrdersByCustomerIdResponse_QNAME = new QName("http://server.order.idu0080.ttu/", "getOrdersByCustomerIdResponse");
-    private final static QName _GetOrdersByCustomerLastNameResponse_QNAME = new QName("http://server.order.idu0080.ttu/", "getOrdersByCustomerLastNameResponse");
-    private final static QName _GetOrdersByShippingAddressResponse_QNAME = new QName("http://server.order.idu0080.ttu/", "getOrdersByShippingAddressResponse");
-    private final static QName _GetOrdersByShippingAddress_QNAME = new QName("http://server.order.idu0080.ttu/", "getOrdersByShippingAddress");
+    private final static QName _GetCourierByIdResponse_QNAME = new QName("http://server.order.idu0080.ttu/", "getCourierByIdResponse");
     private final static QName _GetAllOrdersResponse_QNAME = new QName("http://server.order.idu0080.ttu/", "getAllOrdersResponse");
+    private final static QName _GetAllCouriers_QNAME = new QName("http://server.order.idu0080.ttu/", "getAllCouriers");
     private final static QName _GetOrdersByOrderIdResponse_QNAME = new QName("http://server.order.idu0080.ttu/", "getOrdersByOrderIdResponse");
-    private final static QName _GetOrdersByCustomerLastName_QNAME = new QName("http://server.order.idu0080.ttu/", "getOrdersByCustomerLastName");
+    private final static QName _GetAllCouriersResponse_QNAME = new QName("http://server.order.idu0080.ttu/", "getAllCouriersResponse");
+    private final static QName _GetCourierById_QNAME = new QName("http://server.order.idu0080.ttu/", "getCourierById");
+    private final static QName _GetAllProducts_QNAME = new QName("http://server.order.idu0080.ttu/", "getAllProducts");
 
     /**
-     * Create a new ObjectFactory that can be used to create new instances of schema derived classes for package: ttu.idu0080.transport.orderservice
+     * Create a new ObjectFactory that can be used to create new instances of schema derived classes for package: ttu.idu0080.transport.orderclient
      * 
      */
     public ObjectFactory() {
     }
 
     /**
-     * Create an instance of {@link GetOrdersByCustomerLastName }
+     * Create an instance of {@link GetAllProducts }
      * 
      */
-    public GetOrdersByCustomerLastName createGetOrdersByCustomerLastName() {
-        return new GetOrdersByCustomerLastName();
+    public GetAllProducts createGetAllProducts() {
+        return new GetAllProducts();
+    }
+
+    /**
+     * Create an instance of {@link GetCourierById }
+     * 
+     */
+    public GetCourierById createGetCourierById() {
+        return new GetCourierById();
+    }
+
+    /**
+     * Create an instance of {@link GetAllCouriersResponse }
+     * 
+     */
+    public GetAllCouriersResponse createGetAllCouriersResponse() {
+        return new GetAllCouriersResponse();
     }
 
     /**
@@ -59,27 +77,19 @@ public class ObjectFactory {
     }
 
     /**
+     * Create an instance of {@link GetAllCouriers }
+     * 
+     */
+    public GetAllCouriers createGetAllCouriers() {
+        return new GetAllCouriers();
+    }
+
+    /**
      * Create an instance of {@link GetOrdersByOrderIdResponse }
      * 
      */
     public GetOrdersByOrderIdResponse createGetOrdersByOrderIdResponse() {
         return new GetOrdersByOrderIdResponse();
-    }
-
-    /**
-     * Create an instance of {@link GetOrdersByShippingAddressResponse }
-     * 
-     */
-    public GetOrdersByShippingAddressResponse createGetOrdersByShippingAddressResponse() {
-        return new GetOrdersByShippingAddressResponse();
-    }
-
-    /**
-     * Create an instance of {@link GetOrdersByShippingAddress }
-     * 
-     */
-    public GetOrdersByShippingAddress createGetOrdersByShippingAddress() {
-        return new GetOrdersByShippingAddress();
     }
 
     /**
@@ -99,11 +109,11 @@ public class ObjectFactory {
     }
 
     /**
-     * Create an instance of {@link GetOrdersByCustomerLastNameResponse }
+     * Create an instance of {@link GetCourierByIdResponse }
      * 
      */
-    public GetOrdersByCustomerLastNameResponse createGetOrdersByCustomerLastNameResponse() {
-        return new GetOrdersByCustomerLastNameResponse();
+    public GetCourierByIdResponse createGetCourierByIdResponse() {
+        return new GetCourierByIdResponse();
     }
 
     /**
@@ -123,11 +133,27 @@ public class ObjectFactory {
     }
 
     /**
+     * Create an instance of {@link GetAllProductsResponse }
+     * 
+     */
+    public GetAllProductsResponse createGetAllProductsResponse() {
+        return new GetAllProductsResponse();
+    }
+
+    /**
      * Create an instance of {@link Seller }
      * 
      */
     public Seller createSeller() {
         return new Seller();
+    }
+
+    /**
+     * Create an instance of {@link Product }
+     * 
+     */
+    public Product createProduct() {
+        return new Product();
     }
 
     /**
@@ -144,6 +170,14 @@ public class ObjectFactory {
      */
     public EntAddress createEntAddress() {
         return new EntAddress();
+    }
+
+    /**
+     * Create an instance of {@link Courier }
+     * 
+     */
+    public Courier createCourier() {
+        return new Courier();
     }
 
     /**
@@ -189,6 +223,15 @@ public class ObjectFactory {
     }
 
     /**
+     * Create an instance of {@link JAXBElement }{@code <}{@link GetAllProductsResponse }{@code >}}
+     * 
+     */
+    @XmlElementDecl(namespace = "http://server.order.idu0080.ttu/", name = "getAllProductsResponse")
+    public JAXBElement<GetAllProductsResponse> createGetAllProductsResponse(GetAllProductsResponse value) {
+        return new JAXBElement<GetAllProductsResponse>(_GetAllProductsResponse_QNAME, GetAllProductsResponse.class, null, value);
+    }
+
+    /**
      * Create an instance of {@link JAXBElement }{@code <}{@link GetOrdersByOrderId }{@code >}}
      * 
      */
@@ -207,30 +250,12 @@ public class ObjectFactory {
     }
 
     /**
-     * Create an instance of {@link JAXBElement }{@code <}{@link GetOrdersByCustomerLastNameResponse }{@code >}}
+     * Create an instance of {@link JAXBElement }{@code <}{@link GetCourierByIdResponse }{@code >}}
      * 
      */
-    @XmlElementDecl(namespace = "http://server.order.idu0080.ttu/", name = "getOrdersByCustomerLastNameResponse")
-    public JAXBElement<GetOrdersByCustomerLastNameResponse> createGetOrdersByCustomerLastNameResponse(GetOrdersByCustomerLastNameResponse value) {
-        return new JAXBElement<GetOrdersByCustomerLastNameResponse>(_GetOrdersByCustomerLastNameResponse_QNAME, GetOrdersByCustomerLastNameResponse.class, null, value);
-    }
-
-    /**
-     * Create an instance of {@link JAXBElement }{@code <}{@link GetOrdersByShippingAddressResponse }{@code >}}
-     * 
-     */
-    @XmlElementDecl(namespace = "http://server.order.idu0080.ttu/", name = "getOrdersByShippingAddressResponse")
-    public JAXBElement<GetOrdersByShippingAddressResponse> createGetOrdersByShippingAddressResponse(GetOrdersByShippingAddressResponse value) {
-        return new JAXBElement<GetOrdersByShippingAddressResponse>(_GetOrdersByShippingAddressResponse_QNAME, GetOrdersByShippingAddressResponse.class, null, value);
-    }
-
-    /**
-     * Create an instance of {@link JAXBElement }{@code <}{@link GetOrdersByShippingAddress }{@code >}}
-     * 
-     */
-    @XmlElementDecl(namespace = "http://server.order.idu0080.ttu/", name = "getOrdersByShippingAddress")
-    public JAXBElement<GetOrdersByShippingAddress> createGetOrdersByShippingAddress(GetOrdersByShippingAddress value) {
-        return new JAXBElement<GetOrdersByShippingAddress>(_GetOrdersByShippingAddress_QNAME, GetOrdersByShippingAddress.class, null, value);
+    @XmlElementDecl(namespace = "http://server.order.idu0080.ttu/", name = "getCourierByIdResponse")
+    public JAXBElement<GetCourierByIdResponse> createGetCourierByIdResponse(GetCourierByIdResponse value) {
+        return new JAXBElement<GetCourierByIdResponse>(_GetCourierByIdResponse_QNAME, GetCourierByIdResponse.class, null, value);
     }
 
     /**
@@ -243,6 +268,15 @@ public class ObjectFactory {
     }
 
     /**
+     * Create an instance of {@link JAXBElement }{@code <}{@link GetAllCouriers }{@code >}}
+     * 
+     */
+    @XmlElementDecl(namespace = "http://server.order.idu0080.ttu/", name = "getAllCouriers")
+    public JAXBElement<GetAllCouriers> createGetAllCouriers(GetAllCouriers value) {
+        return new JAXBElement<GetAllCouriers>(_GetAllCouriers_QNAME, GetAllCouriers.class, null, value);
+    }
+
+    /**
      * Create an instance of {@link JAXBElement }{@code <}{@link GetOrdersByOrderIdResponse }{@code >}}
      * 
      */
@@ -252,12 +286,30 @@ public class ObjectFactory {
     }
 
     /**
-     * Create an instance of {@link JAXBElement }{@code <}{@link GetOrdersByCustomerLastName }{@code >}}
+     * Create an instance of {@link JAXBElement }{@code <}{@link GetAllCouriersResponse }{@code >}}
      * 
      */
-    @XmlElementDecl(namespace = "http://server.order.idu0080.ttu/", name = "getOrdersByCustomerLastName")
-    public JAXBElement<GetOrdersByCustomerLastName> createGetOrdersByCustomerLastName(GetOrdersByCustomerLastName value) {
-        return new JAXBElement<GetOrdersByCustomerLastName>(_GetOrdersByCustomerLastName_QNAME, GetOrdersByCustomerLastName.class, null, value);
+    @XmlElementDecl(namespace = "http://server.order.idu0080.ttu/", name = "getAllCouriersResponse")
+    public JAXBElement<GetAllCouriersResponse> createGetAllCouriersResponse(GetAllCouriersResponse value) {
+        return new JAXBElement<GetAllCouriersResponse>(_GetAllCouriersResponse_QNAME, GetAllCouriersResponse.class, null, value);
+    }
+
+    /**
+     * Create an instance of {@link JAXBElement }{@code <}{@link GetCourierById }{@code >}}
+     * 
+     */
+    @XmlElementDecl(namespace = "http://server.order.idu0080.ttu/", name = "getCourierById")
+    public JAXBElement<GetCourierById> createGetCourierById(GetCourierById value) {
+        return new JAXBElement<GetCourierById>(_GetCourierById_QNAME, GetCourierById.class, null, value);
+    }
+
+    /**
+     * Create an instance of {@link JAXBElement }{@code <}{@link GetAllProducts }{@code >}}
+     * 
+     */
+    @XmlElementDecl(namespace = "http://server.order.idu0080.ttu/", name = "getAllProducts")
+    public JAXBElement<GetAllProducts> createGetAllProducts(GetAllProducts value) {
+        return new JAXBElement<GetAllProducts>(_GetAllProducts_QNAME, GetAllProducts.class, null, value);
     }
 
 }

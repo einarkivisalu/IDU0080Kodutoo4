@@ -2,6 +2,8 @@ package ttu.idu0080.myclient;
 
 import java.util.List;
 
+import ttu.idu0080.myclient2.Offerresponse;
+
 public class Tester {
 
 	public static void main(String[] args) {

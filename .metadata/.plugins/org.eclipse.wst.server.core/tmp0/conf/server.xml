@@ -149,7 +149,7 @@
              Note: The pattern used is equivalent to using pattern="common" -->
         <Valve className="org.apache.catalina.valves.AccessLogValve" directory="logs" pattern="%h %l %u %t &quot;%r&quot; %s %b" prefix="localhost_access_log" suffix=".txt"/>
 
-      <Context docBase="C:\Users\Random\workspace4test2\.metadata\.plugins\org.eclipse.wst.server.core\tmp0\wtpwebapps\ROOT" path="" reloadable="false"/><Context docBase="C:\Users\Random\workspace4test2\.metadata\.plugins\org.eclipse.wst.server.core\tmp0\wtpwebapps\OrderService" path="/OrderService" reloadable="true" source="org.eclipse.jst.jee.server:OrderService"/><Context docBase="C:\Users\Random\workspace4test2\.metadata\.plugins\org.eclipse.wst.server.core\tmp0\wtpwebapps\TransportService" path="/TransportService" reloadable="true" source="org.eclipse.jst.jee.server:TransportService"/></Host>
+      <Context docBase="C:\Users\rmg\workspace4test3\.metadata\.plugins\org.eclipse.wst.server.core\tmp0\wtpwebapps\ROOT" path="" reloadable="false"/><Context docBase="C:\Users\rmg\workspace4test3\.metadata\.plugins\org.eclipse.wst.server.core\tmp0\wtpwebapps\OrderService" path="/OrderService" reloadable="true" source="org.eclipse.jst.jee.server:OrderService"/><Context docBase="C:\Users\rmg\workspace4test3\.metadata\.plugins\org.eclipse.wst.server.core\tmp0\wtpwebapps\TransportService" path="/TransportService" reloadable="true" source="org.eclipse.jst.jee.server:TransportService"/></Host>
     </Engine>
   </Service>
 </Server>

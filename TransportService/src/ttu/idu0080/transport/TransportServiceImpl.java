@@ -34,7 +34,7 @@ import javax.xml.ws.ResponseWrapper;
                       serviceName = "TransportServiceService",
                       portName = "TransportServicePort",
                       targetNamespace = "http://transport.idu0080.ttu/",
-                      wsdlLocation = "file:/C:/Users/Random/workspace4test2/TransportService/src/transport.wsdl",
+                      wsdlLocation = "file:/C:/Users/rmg/workspace4test3/TransportService/src/transport.wsdl",
                       endpointInterface = "ttu.idu0080.transport.TransportService")
                       
 public class TransportServiceImpl implements TransportService {
@@ -48,20 +48,16 @@ public class TransportServiceImpl implements TransportService {
         LOG.info("Executing operation getCourierList");
         try {
         	// get data from db
-        	System.out.println("001\n");
-        	
-        	ttu.idu0080.transport.courierclient.CourierService_CourierServicePort_Client client = new ttu.idu0080.transport.courierclient.CourierService_CourierServicePort_Client();
+        	ttu.idu0080.transport.orderclient.OrderService_OrderServicePort_Client client = new ttu.idu0080.transport.orderclient.OrderService_OrderServicePort_Client();
             java.util.List<ttu.idu0080.transport.Courierdata> _return = new java.util.ArrayList<ttu.idu0080.transport.Courierdata>();
-        	java.util.List<ttu.idu0080.transport.courierclient.Courier> couriers = client._getAllCouriers();
-        	System.out.println("002\n");
+        	java.util.List<ttu.idu0080.transport.orderclient.Courier> couriers = client._getAllCouriers();
             
-            for (ttu.idu0080.transport.courierclient.Courier p: couriers) {
+            for (ttu.idu0080.transport.orderclient.Courier p: couriers) {
             	ttu.idu0080.transport.Courierdata _returnVal1 = new ttu.idu0080.transport.Courierdata();
             	_returnVal1.setCourier(p.getEnterprise());
             	_returnVal1.setName(p.getName());
             	_return.add(_returnVal1);
             }
-        	System.out.println("003\n");
             
             return _return;
         } catch (java.lang.Exception ex) {
@@ -90,38 +86,36 @@ public class TransportServiceImpl implements TransportService {
         LOG.info("Executing operation getCourierOffer");
         System.out.println(orderid);
         try {
-        	ttu.idu0080.transport.orderclient.OrderService_OrderServicePort_Client client2 = new ttu.idu0080.transport.orderclient.OrderService_OrderServicePort_Client();
-        	ttu.idu0080.transport.courierclient.CourierService_CourierServicePort_Client client = new ttu.idu0080.transport.courierclient.CourierService_CourierServicePort_Client();
+        	ttu.idu0080.transport.orderclient.OrderService_OrderServicePort_Client client = new ttu.idu0080.transport.orderclient.OrderService_OrderServicePort_Client();
         	
-            System.out.println("001\n");
-        	ttu.idu0080.transport.orderclient.Order order = client2._getOrderById(orderid);
+        	ttu.idu0080.transport.orderclient.Order order = client._getOrderById(orderid);
         	
-            System.out.println("002\n");
-        	ttu.idu0080.transport.courierclient.Courier courier = client._getCourierById(courierid);
-            System.out.println("003\n");
-        	float _alla = 1; 
-        	float _price = order.getPriceTotal();// * courier.getPercentFromOrder() / 100;
+        	ttu.idu0080.transport.orderclient.Courier courier = client._getCourierById(courierid);
+        	float _alla = 1;
+        	
+        	float _price = order.getPriceTotal() * courier.getPercentFromOrder() / 100;
 
-        	List<ttu.idu0080.transport.courierclient.EntAddress> addr = courier.getAddresses();
+        	List<ttu.idu0080.transport.orderclient.EntAddress> addr = courier.getAddresses();
         	String target_county = order.getShippingAddress().getCounty();
-        	for (ttu.idu0080.transport.courierclient.EntAddress ad: addr)
+        	for (ttu.idu0080.transport.orderclient.EntAddress ad: addr)
         	{
         		if (ad.getCounty().equals(target_county))
         		{
+        			System.out.println(String.format("Allahindlus kuna klient on %s ja kullerfirma on %s", target_county, ad.getCounty()));
     				_alla = _alla - 0.3f;
     				break;
         		}
         	}        	
         	
-            System.out.println("004\n");
         	List<ttu.idu0080.transport.orderclient.EntAddress> ship_addr = order.getSeller().getAddresses(); 
-        	for (ttu.idu0080.transport.courierclient.EntAddress ad: addr)
+        	for (ttu.idu0080.transport.orderclient.EntAddress ad: addr)
         	{
         		boolean b = false;
         		for (ttu.idu0080.transport.orderclient.EntAddress sh_ad: ship_addr)
         		{
-        			if (ad.getCounty() == sh_ad.getCounty())
+        			if (ad.getCounty().equals(sh_ad.getCounty()))
         			{
+            			System.out.println(String.format("Allahindlus kuna tarnija on %s ja kullerfirma on %s", sh_ad.getCounty(), ad.getCounty()));
         				_alla = _alla - 0.3f;
         				b = true;
         				break;
@@ -134,7 +128,6 @@ public class TransportServiceImpl implements TransportService {
         	}
         	_price = _price *_alla;
 
-        	System.out.println("005\n");
             ttu.idu0080.transport.Offerresponse _return = new ttu.idu0080.transport.Offerresponse();
             _return.setOfferid(getSaltString());
             _return.setPrice(_price);

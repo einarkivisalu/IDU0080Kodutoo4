@@ -6,33 +6,9 @@
 	<import resource="classpath:META-INF/cxf/cxf-extension-soap.xml" />
 	<import resource="classpath:META-INF/cxf/cxf-servlet.xml" />
 	<jaxws:endpoint xmlns:tns="http://server.order.idu0080.ttu/"
-		id="productservice" implementor="ttu.idu0080.orderservice.products.ProductServiceImpl"
-		wsdlLocation="wsdl/products.wsdl" endpointName="tns:ProductServicePort"
-		serviceName="tns:ProductServiceService" address="/ProductServicePort">
-		<jaxws:features>
-			<bean class="org.apache.cxf.feature.LoggingFeature" />
-		</jaxws:features>
-	</jaxws:endpoint>
-	<jaxws:endpoint xmlns:tns="http://server.order.idu0080.ttu/"
-		id="orderservice" implementor="ttu.idu0080.orderservice.orders.OrderServiceImpl"
-		wsdlLocation="wsdl/orders.wsdl" endpointName="tns:OrderServicePort"
+		id="orderservice" implementor="ttu.idu0080.orderservice.OrderServiceImpl"
+		wsdlLocation="wsdl/collect.wsdl" endpointName="tns:OrderServicePort"
 		serviceName="tns:OrderServiceService" address="/OrderServicePort">
-		<jaxws:features>
-			<bean class="org.apache.cxf.feature.LoggingFeature" />
-		</jaxws:features>
-	</jaxws:endpoint>
-	<jaxws:endpoint xmlns:tns="http://server.order.idu0080.ttu/"
-		id="courierservice" implementor="ttu.idu0080.orderservice.couriers.CourierServiceImpl"
-		wsdlLocation="wsdl/couriers.wsdl" endpointName="tns:CourierServicePort"
-		serviceName="tns:CourierServiceService" address="/CourierServicePort">
-		<jaxws:features>
-			<bean class="org.apache.cxf.feature.LoggingFeature" />
-		</jaxws:features>
-	</jaxws:endpoint>
-	<jaxws:endpoint xmlns:tns="http://server.order.idu0080.ttu/"
-		id="ordershipmentservice" implementor="ttu.idu0080.orderservice.ordershipments.OrderShipmentServiceImpl"
-		wsdlLocation="wsdl/order_shipments.wsdl" endpointName="tns:OrderShipmentServicePort"
-		serviceName="tns:OrderShipmentServiceService" address="/OrderShipmentServicePort">
 		<jaxws:features>
 			<bean class="org.apache.cxf.feature.LoggingFeature" />
 		</jaxws:features>
